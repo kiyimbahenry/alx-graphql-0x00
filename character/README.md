@@ -72,3 +72,52 @@ Understand GraphQL query structure and syntax
 Retrieve specific character information using ID parameters
 
 Work with GraphQL response formats
+
+# Paginated Characters Queries
+
+This directory contains GraphQL queries for retrieving paginated lists of characters.
+
+## Files
+
+- `characters-page-1.graphql` - Query for page 1 characters
+- `characters-page-1-output.json` - JSON response for page 1
+- `characters-page-2.graphql` - Query for page 2 characters
+- `characters-page-2-output.json` - JSON response for page 2
+- `characters-page-3.graphql` - Query for page 3 characters
+- `characters-page-3-output.json` - JSON response for page 3
+- `characters-page-4.graphql` - Query for page 4 characters
+- `characters-page-4-output.json` - JSON response for page 4
+
+## Query Structure
+
+Each query follows this pattern:
+
+```graphql
+query {
+  characters(page: [PAGE_NUMBER]) {
+    results {
+      id
+      name
+      status
+      image
+    }
+  }
+}
+
+Fields Requested
+For each character in the results:
+
+id: Unique identifier
+
+name: Character's name
+
+status: Character's status (Alive, Dead, or unknown)
+
+image: URL to the character's image
+
+Pagination
+Uses the characters(page: Int) field with page numbers 1 through 4
+
+Each page typically contains 20 characters (depends on API configuration)
+
+Pagination allows retrieving manageable chunks of data
